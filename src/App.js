@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProductList from "./components/products/ProductList";
+import ProductDetail from "./components/products/ProductDetail";
+import ProductAdding from "./components/products/ProductAdding";
+import ProductEditing from "./components/products/ProductEditing";
+import ProductRemoving from "./components/products/ProductRemoving";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+        <Route path={`/product/:productId`} element={<ProductDetail />} />
+        <Route path={`/product/add`} element={<ProductAdding />} />
+        <Route path={`/product/edit/:productId`} element={<ProductEditing />} />
+        <Route
+          path={`/product/remove/:productId`}
+          element={<ProductRemoving />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
