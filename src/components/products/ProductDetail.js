@@ -49,6 +49,9 @@ const ProductDetail = () => {
       <hr />
       <b>Mô tả</b> <br />
       <p>{productDetail?.description}</p>
+      <button className="btn btn-secondary" onClick={getBackProductList}>
+        Back
+      </button>
     </div>
   );
 };
